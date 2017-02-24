@@ -47,7 +47,7 @@ if ( isset( $_SESSION['personnage'] ) )
     else if($ennemi->mort()){
         echo 'Vous avez gagné !<br>
         <form method="POST" action="room.php">
-            <input type="hidden" name="monstre_vaincu" value="1" >
+            <input type="hidden" name="step" value="1" >
             <input type="submit">            
         </form>';
 

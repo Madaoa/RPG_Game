@@ -35,10 +35,7 @@ class Monstre
         echo 'Le '.$this->nom().' frappe '.$cible->classe().' ! <br> '.$cible->classe().' subit '.$this->attaque().' points de dégat !';
 
     }
-    public function degats($degats)
-    {
-        $this->_vie -= $degats;
-    }
+
     public function mort()
     {
         if ($this->_vie == 0){

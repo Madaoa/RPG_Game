@@ -2,10 +2,11 @@
 
 require_once('arme.php');
 
-class BaguetteDeGlace extends Arme {
+class Baguette extends Arme {
 
-    public $_puissance = 8000,
-        $_nom = "Baguette de glace";
+    public $_bonusMagique = 8000,
+            $_bonusAttaque = 0,
+        $_nom = "Baguette";
 
 }
 

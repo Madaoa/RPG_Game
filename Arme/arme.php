@@ -3,17 +3,22 @@
 
 class Arme {
 
-    public $_nom,
-            $_puissance,
+    public  $_nom,
+            $_bonusAttaque,
+            $_bonusMagique;
 
 
-    public function puissance() {
-        return $this->_puissance;
+    public function nom() {
+        return $this->_nom;
+    }
+    public function bonusAttaque() {
+        return $this->_bonusAttaque;
+    }
+    public function bonusMagique() {
+        return $this->_bonusMagique;
     }
 
-    public function attack() {
-        $this->causerDegat();
-    }
+
 
 }
 

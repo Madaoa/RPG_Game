@@ -21,7 +21,7 @@ class Game
     public function evolution()
     {
         $_roll = rand(0, 2);
-        if ($_roll != 0 OR securiteSalle() == true) {
+        if ($_roll != 0 OR $this->securiteSalle() == true) {
             $this->_salle++;
         } else {
             $this->_salle--;
@@ -64,7 +64,7 @@ class Game
     }
      public function selectArme()
     {
-       $_roll= rand(0,1);
+       $_roll= rand(0,5);
        return $_roll;
     }
 
