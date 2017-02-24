@@ -1,16 +1,30 @@
 
 @import url('https://fonts.googleapis.com/css?family=Rubik');
-body{
+@import url('https://fonts.googleapis.com/css?family=Asul');
+.bg{
     background:url('B6WuaoR.png');
     background-repeat: no-repeat;
     background-size: cover;
 }
+
 h1 {
+    text-align:center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-size: 3em;
+    font-family: 'Rubik', sans-serif;
+}
+.white_text {
     text-align:center;
     color: white;
     margin-bottom: 50px;
     font-size: 3em;
     font-family: 'Rubik', sans-serif;
+}
+h2 {
+    font-family: 'Rubik', sans-serif;
+    text-align: center;
+    margin-top: 50px;
 }
 .index {
     margin: 200px 100px;
@@ -28,31 +42,11 @@ button {
     position: relative;
     transition: 2s linear;
 }
-button:after{
-    content: "";
-    position: absolute;
-    border: 2px solid  #d61408;
-    top: 0px;
-    bottom: 0px;
-    left: 0px;
-    right: 0px;
-    transition: 0.5s linear;
-    transform: scale(1);
-    border-radius: 5px;
+
+button:hover{
+    background: #fa3b0a;
 }
-button:hover:after{
-    animation: hover_button 1s linear;
-}
-@keyframes hover_button{
-    0%{
-        transform: scale(1);
-        border: 2px solid  #d61408;
-    }
-    100%{
-        transform: scale(1.20);
-        border: none;
-    }
-}
+
 select {
     width: 500px;
     height: 50px;
@@ -69,5 +63,46 @@ input[type="submit"]{
     height: 50px;
     cursor: pointer;
     margin-left: 62px;
+    margin-bottom: 30px;
     position: relative;
 }
+.grey {
+    display: block;
+    background: grey;
+    clear:both;
+    padding: 40px;
+    color: white;
+    font-size: 1.2em;
+    text-align: center;
+}
+.game {
+    margin-left: 30%;
+    margin-top: 50px;
+}
+p{
+    font-family: 'Asul', sans-serif;
+}
+.game_title{
+    margin-top: 100px;
+}
+.atk input[type="submit"]{
+    width: 200px;
+}
+.text_indic{
+    margin-bottom: 30px;
+    margin-left: 30px;
+}
+.row {
+    position: relative;
+    z-index: -1;
+}
+.separate {
+    height: 90%;
+    background: white;
+    width: 1px;
+    position: absolute;
+    margin-top: 10px;
+    left: 50%;
+    z-index: 1;
+}
+
