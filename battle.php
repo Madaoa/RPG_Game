@@ -15,109 +15,125 @@ if ( isset( $_SESSION['personnage'] ) )
 };
 
 
-
+@include('Vues/header.html');
 ?>
-<!doctype html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Jeu RPG</title>
-</head>
-<body>
 
-<h1>Mode Combat ! </h1>
+    <div class="">
+        <div class="">
+            <div class="">
+            <h1>Mode Combat ! </h1>
 
-   <?php
-   if(!isset($_POST['flag'])){
-    $flag = 0;
-    }else{
-       $flag=1;
-   } ?>
+            <?php
+            if(!isset($_POST['flag'])){
+                $flag = 0;
+            }else{
+                $flag=1;
+            } ?>
 
-<?php
-    if($personnage->mort()){
-        echo 'Vous avez perdu... <br>
-<a href="index">Retourner à l\'écran titre</a>';
-    }
+            <?php
+            if($personnage->mort()){
+                echo 'Vous avez perdu... <br>
+<a href="index.php">Retourner à l\'écran titre</a>';
+            }
 
 
-    else if($ennemi->mort()){
-        echo 'Vous avez gagné !<br>
+            else if($ennemi->mort()){
+                echo 'Vous avez gagné !<br>
         <form method="POST" action="room.php">
             <input type="hidden" name="step" value="1" >
             <input type="submit">            
         </form>';
 
-    }
+            }
 
 
-    else if($flag== 0){
-        echo '
-        <form action="battle.php" method="POST">
+            else if($flag== 0){
+                echo '
+        <form action="battle.php" method="POST" class="atk">
               <input type="hidden" name="flag" value="1" >
               <input type="submit" value="Attaquer" name="move">
               <input type="submit" value="Incantation" name="move">
         </form>';}
 
 
-    else{
-        if(isset($_POST['move'])){
-        if($_POST['move']=="Attaquer"){
-            $personnage->agroPhysique($ennemi);
-            echo '<br>';
-            $ennemi->agro($personnage);
+            else{
+                ?>
+                <div class="col-lg-12 ">
+                <?php
+                if(isset($_POST['move'])){
+                    if($_POST['move']=="Attaquer"){
+                        $personnage->agroPhysique($ennemi);
+                        echo '<br>';
+                        $ennemi->agro($personnage);
 
-        }else if($_POST['move']=="Incantation"){
-            $personnage->agroMagique($ennemi);
-            echo '<br>';
-            $ennemi->agro($personnage);
-        }}
-        echo'
-        <form action="battle.php" method="POST">
+                    }else if($_POST['move']=="Incantation"){
+                        $personnage->agroMagique($ennemi);
+                        echo '<br>';
+                        $ennemi->agro($personnage);
+                    }}
+                    ?>
+                </div>
+                <?php
+                echo'
+        <form action="battle.php" method="POST" class="atk">
               <input type="hidden" name="flag" value="1" >
-              <input type="submit" value="Attaquer" name="move">
-              <input type="submit" value="Incantation" name="move">
-        </form>;';
-}
+              <input type="submit" value="Attaquer" name="move" >
+              <input type="submit" value="Incantation" name="move" >
+        </form>';
+            }
+            ?>
+            </div>
 
-echo "<h1>Fiche technique</h1>". "<br>"	;
+        </div>
+        <hr>
 
-echo 'Votre classe : ' . $personnage->classe(). '<br>';
+        <?php
+        echo "<h1>Fiche technique</h1>". "<br>"	;
+        ?>
+        <div class="row">
+            <div class="col-lg-6 grey">
 
-echo 'Points de vie : ' . $personnage->vie(). '<br>';
+        <?php
+        echo '<h3>Personnage</h3>';
+        echo 'Votre classe : ' . $personnage->classe(). '<br>';
 
-echo 'Attaque : ' . $personnage->attaque(). '<br>';
+        echo 'Points de vie : ' . $personnage->vie(). '<br>';
 
-echo 'Magie : ' . $personnage->magie(). '<br>';
+        echo 'Attaque : ' . $personnage->attaque(). '<br>';
 
-
-
-
-echo "<h1>Fiche Ennemi</h1>". "<br>"	;
-
-echo 'Nom : ' . $ennemi->nom(). '<br>';
-
-echo 'Points de vie : ' . $ennemi->vie(). '<br>';
-
-echo 'Attaque : ' . $ennemi->attaque(). '<br>';
-
-
-
-
-
-
-
-    ?>
-<?php
-
-$_SESSION['ennemi'] = serialize($ennemi);
-
-$_SESSION['personnage'] = serialize($personnage);
+        echo 'Magie : ' . $personnage->magie(). '<br>';
 
 ?>
+        </div>
+            <div class="separate"></div>
+        <div class="col-lg-6 grey">
+        <?php
 
-</body>
-</html>
+        echo '<h3>Ennemi</h3>';
+
+        echo 'Nom : ' . $ennemi->nom(). '<br>';
+
+        echo 'Points de vie : ' . $ennemi->vie(). '<br>';
+
+        echo 'Attaque : ' . $ennemi->attaque(). '<br>';
+
+
+
+
+
+
+
+        ?>
+        </div>
+        </div>
+        <?php
+
+        $_SESSION['ennemi'] = serialize($ennemi);
+
+        $_SESSION['personnage'] = serialize($personnage);
+
+        ?>
+    </div>
+<?php
+@include('Vues/footer.html')
+?>

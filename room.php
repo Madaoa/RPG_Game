@@ -32,16 +32,11 @@ if (!isset($_POST['step'])){
 }
 
 ?>
-<!doctype html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Jeu RPG</title>
-</head>
-<body>
+
+
+<?php
+@include('Vues/header.html');
+?>
 
 <h1>Vous êtes à la salle <?php echo $jeu->salle(); ?> </h1>
 
@@ -148,7 +143,10 @@ echo '</form>';
 //     </form>';
     'DANS UN PROCHAIN DLC, LE TITAN !';
 }
+
+@include('Vues/footer.html')
 ?>
+
 
 <?php
 echo "<h1>Fiche technique</h1>". "<br>"	;
@@ -167,3 +165,4 @@ echo 'Arme : ' .$personnage->nomArme().' +'. $personnage->dmgArme(). '<br>';
 ?>
 </body>
 </html>
+

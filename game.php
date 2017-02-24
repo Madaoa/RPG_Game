@@ -3,18 +3,14 @@ session_start();
 require_once('Personnages/Guerrier.php');
 require_once('Personnages/Magicien.php');
 require_once('Personnages/Paladin.php');
+@include('Vues/header.html');
 ?>
-<!doctype html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Jeu RPG</title>
-</head>
-<body>
-<h2>Vous avez choisi le <?php echo $_POST['classe'] ?></h2>
+<div class="container flex">
+<h2 class="game_title">Vous avez choisi le <?php echo $_POST['classe'] ?></h2>
+    <form action="room.php" method="POST" class="game">
+        <input type="submit" value="Entrer dans le donjon !" >
+    </form>
+
 
 <?php
 if($_POST['classe'] == "Guerrier"){
@@ -32,22 +28,29 @@ if($_POST['classe'] == "Guerrier"){
     echo "pas compris";
 }
 
-
+?>
+    <hr>
+    <?php
 echo "<h1>Fiche technique</h1>". "<br>"	;
+?>
+    <div class="row">
+        <div class="col-lg-6 grey push-lg-3">
+        <?php
 
-echo 'Votre classe : ' . $perso->classe(). '<br>';
+echo '<p>Votre classe : ' . $perso->classe(). '</p>';
 
-echo 'Points de vie : ' . $perso->vie(). '<br>';
+echo '<p>Points de vie : ' . $perso->vie(). '</p>';
 
-echo 'Attaque : ' . $perso->attaque(). '<br>';
+echo '<p>Attaque : ' . $perso->attaque(). '</p>';
 
-echo 'Magie : ' . $perso->magie(). '<br>';
+echo '<p>Magie : ' . $perso->magie(). '</p>';
 
 
 ?>
-<form action="room.php" method="POST">
-<input type="submit" value="Entrer dans le donjon !">
-</form>
+        </div>
+    </div>
+</div>
+<?php
+@include('Vues/footer.html');
+?>
 
-</body>
-</html>
