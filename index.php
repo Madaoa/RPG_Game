@@ -1,15 +1,14 @@
-<!doctype html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Jeu RPG</title>
-</head>
-<body>
-<h1>Jeu RPG</h1>
-<h2>Pour démarrer le jeu cliquez sur le bouton ci-dessous</h2>
-<a href="select.php">Démarrer une nouvelle partie</a>
-</body>
-</html>
+<?php
+@include('Vues/header.html');
+?>
+<div class="container flex">
+    <div class="row justify-content-center align-self-center index">
+        <div class="col-lg-6">
+    <h1>Donjon et titans</h1>
+    <a href="select.php"><button>Démarrer une nouvelle partie</button></a>
+        </div>
+    </div>
+</div>
+<?php
+@include('Vues/footer.html');
+?>

@@ -15,19 +15,11 @@ if ( isset( $_SESSION['personnage'] ) )
 };
 
 
-
+@include('Vues/header.html');
 ?>
-<!doctype html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Jeu RPG</title>
-</head>
-<body>
 
+<div class="container-flex">
+    <div class="row">
 <h1>Mode Combat ! </h1>
 
    <?php
@@ -40,7 +32,7 @@ if ( isset( $_SESSION['personnage'] ) )
 <?php
     if($personnage->mort()){
         echo 'Vous avez perdu... <br>
-<a href="index">Retourner à l\'écran titre</a>';
+<a href="index.php">Retourner à l\'écran titre</a>';
     }
 
 
@@ -82,7 +74,9 @@ if ( isset( $_SESSION['personnage'] ) )
               <input type="submit" value="Incantation" name="move">
         </form>;';
 }
-
+?>
+    </div>
+        <?php
 echo "<h1>Fiche technique</h1>". "<br>"	;
 
 echo 'Votre classe : ' . $personnage->classe(). '<br>';
@@ -118,6 +112,7 @@ $_SESSION['ennemi'] = serialize($ennemi);
 $_SESSION['personnage'] = serialize($personnage);
 
 ?>
-
-</body>
-</html>
+</div>
+<?php
+@include('Vues/footer.html')
+?>
