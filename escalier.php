@@ -19,6 +19,12 @@ $jeu = unserialize($_SESSION['jeu']);
 $jeu->evolution();
 
 $_SESSION['jeu'] = serialize($jeu);
-var_dump($_SESSION);
-header('Location: room.php');
+@include('Vues/header.html');
+
+?>
+<h1>Vous évoluez dans le donjon !</h1>
+<a  class='text-center' href="room.php">Aller à la salle suivante !</a>
+<?php
+@include('Vues/footer.html');
+
 ?>
